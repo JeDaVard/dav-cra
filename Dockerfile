@@ -22,5 +22,8 @@ CMD ["npm", "start"]
 # Make another image, choose nginx distribution from docker hub
 FROM nginx
 
+# Expost the port for aws prod enviroment, (elasticBeanstalk)
+EXPOSE 80
+
 # Copy your prod build to the folder specified by NGINX (docker hub documentation)
 COPY --from=builder /app/build /usr/share/nginx/html
