@@ -1,5 +1,5 @@
 language: generic
-#sudo: required # Execute with permissions, because docker stuff need it
+#sudo: required # Execute with permissions, because docker stuff need it, but it is deprecated I guess
 services: # Travis will understand that we use docker, so we need docker CLI.
   - docker  # Behind the scene will install a copy of docker into our running container
 
@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true davitvardanyan/dav-cra npm run test
+
+#deploy:
+#  provider: elasticbeanstalk
+#  region: "us-west-2"
+#  app: "dav-cra-aws"
+#  env: "docker-prod"
+#  bucket_name: "elasticbeanstalk-us-west-2-2534233"
+#  bucket_path: "dav-cra-aws"
+#  on:
+#    branch: master
