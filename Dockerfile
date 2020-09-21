@@ -1,5 +1,6 @@
 # Choose alpine distribution of node from docker hub
 FROM node:alpine as builder
+#FROM node:alpine # For ex. AWS EB like numeric builders instead of named, for it's 0
 
 # Create a workdir inside the container
 WORKDIR '/app'
@@ -27,3 +28,4 @@ EXPOSE 80
 
 # Copy your prod build to the folder specified by NGINX (docker hub documentation)
 COPY --from=builder /app/build /usr/share/nginx/html
+#COPY --from=0 /app/build /usr/share/nginx/html # Here's the builder code [0]
