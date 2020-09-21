@@ -1,0 +1,10 @@
+language: generic
+#sudo: required # Execute with permissions, because docker stuff need it
+services: # Travis will understand that we use docker, so we need docker CLI.
+  - docker  # Behind the scene will install a copy of docker into our running container
+
+before_install:
+  - docker build -t davitvardanyan/dav-cra -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true davitvardanyan/dav-cra npm run test
