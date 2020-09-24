@@ -10,7 +10,7 @@ import Header from '../components/Header/Header'
 function App() {
     return (
         <div>
-            <h1>App</h1>
+            <h1>Dav cra template</h1>
             <Layout header={<Header />} footer={<Footer />}>
                 <Switch>
                     <Route exact path="/" component={Main} />
